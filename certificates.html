@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Certificates | Alliah Pedro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Three color modes. Blue is the default (brand navy). Light and Dark switch via data-mode on the root. */
+:root {
+  --font: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bg: #022840;
+  --surface: #05395A;
+  --ink: #FFFFFF;
+  --body: #A9C7D6;
+  --label: #5CD0E3;
+  --accent: #02D2E6;
+  --on-accent: #02385A;
+  --line: rgba(169, 199, 214, .22);
+  --callout: #05395A;
+  --callout-line: #0297A7;
+  --ghost: #1E5A7E;
+  --navy: #02385A;
+  --steel: #26668C;
+  --cyan: #02D2E6;
+  --on-navy: #FFFFFF;
+  --on-navy-2: #A9C7D6;
+  --btn-bg: #02D2E6;
+  --btn-ink: #02385A;
+  --tab-bg: #26668C;
+  --tab-ink: #FFFFFF;
+  --tab-title: #02D2E6;
+  --shadow: 0 14px 40px rgba(0, 0, 0, .35);
+  --gutter: clamp(16px, 4vw, 40px);
+  color-scheme: dark;
+}
+:root[data-mode="light"] {
+  --bg: #F3F7F9; --surface: #FFFFFF; --ink: #02385A; --body: #33536A; --label: #00707C; --accent: #0297A7; --on-accent: #FFFFFF;
+  --line: #D3E2E9; --callout: #EAF8FA; --callout-line: #5CD0E3; --ghost: #B9CDD8; --navy: #02385A;
+  --tab-bg: #26668C; --tab-ink: #FFFFFF; --tab-title: #5CF0FF;
+  --shadow: 0 14px 40px rgba(2, 56, 90, .12); color-scheme: light;
+}
+:root[data-mode="dark"] {
+  --bg: #0A1218; --surface: #121D27; --ink: #F2F7FA; --body: #A7B6C2; --label: #5CD0E3; --accent: #02D2E6; --on-accent: #02242F;
+  --line: rgba(167, 182, 194, .2); --callout: #121D27; --callout-line: #0297A7; --ghost: #223646; --navy: #0E2A3D;
+  --tab-bg: #26668C; --tab-ink: #FFFFFF; --tab-title: #02D2E6;
+  --shadow: 0 14px 40px rgba(0, 0, 0, .5); color-scheme: dark;
+}
+
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--body); font-family: var(--font); font-size: 16px; line-height: 1.6; padding: 0 var(--gutter) 64px; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1200px; margin-inline: auto; }
+h1, h2, p { margin: 0; }
+h1 { color: var(--ink); font-weight: 800; letter-spacing: -.035em; line-height: 1.02; font-size: clamp(2.4rem, 7vw, 4.6rem); text-wrap: balance; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 22px; flex-wrap: wrap; }
+.back { display: inline-flex; align-items: center; gap: 12px; padding: 13px 24px 13px 18px; min-height: 50px; border-radius: 999px; border: 1.5px solid var(--accent); color: var(--accent); font-weight: 700; font-size: 16px; text-decoration: none; }
+.back span { font-size: 24px; line-height: 1; }
+.back:hover { background: var(--accent); color: var(--on-accent); }
+.themes { display: inline-flex; gap: 2px; padding: 4px; border-radius: 999px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.themes button {
+  display: inline-flex; align-items: center; gap: 7px; border: 0; background: transparent; color: var(--body); cursor: pointer;
+  font: 700 13px/1 var(--font); padding: 8px 12px; border-radius: 999px; transition: background .2s, color .2s;
+}
+.themes button:hover { color: var(--ink); }
+.themes button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+.themes i { width: 14px; height: 14px; border-radius: 50%; flex: none; box-shadow: inset 0 0 0 1.5px rgba(128, 160, 180, .7); }
+.themes [data-m="blue"] i { background: linear-gradient(135deg, #02385A 50%, #02D2E6 50%); }
+.themes [data-m="light"] i { background: #FFFFFF; }
+.themes [data-m="dark"] i { background: #0A1218; }
+@media (max-width: 640px) {
+  .themes button { padding: 8px 9px; }
+  .themes button span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+
+.head { display: grid; gap: 14px; padding-block: clamp(24px, 5vw, 56px) 28px; }
+.head p { max-width: 62ch; }
+.label { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--label); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.filters button { font: 700 14px/1 var(--font); padding: 11px 16px; border-radius: 999px; border: 0; cursor: pointer; background: var(--surface); color: var(--ink); box-shadow: 0 0 0 1px var(--line); }
+.filters button span { opacity: .7; font-weight: 600; margin-left: 4px; }
+.filters button:hover { box-shadow: 0 0 0 1.5px var(--accent); }
+.filters button[aria-pressed="true"] { background: var(--tab-bg); color: #fff; box-shadow: none; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 18px; }
+.item { background: var(--surface); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); display: grid; grid-template-rows: auto 1fr; }
+.item button { padding: 0; border: 0; background: #fff; cursor: zoom-in; aspect-ratio: 4 / 3; display: block; width: 100%; }
+.item img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.item .meta { padding: 14px 16px 16px; display: grid; gap: 4px; align-content: start; }
+.item .meta b { color: var(--ink); font-size: 15px; line-height: 1.3; font-weight: 700; }
+.item .meta small { color: var(--label); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.lbox { position: fixed; inset: 0; z-index: 60; background: rgba(2, 24, 40, .92); display: grid; place-items: center; padding: 16px; }
+.lbox[hidden] { display: none; }
+.lbox .box { width: min(1000px, 100%); display: grid; gap: 12px; }
+.lbox .bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: #fff; font-weight: 700; font-size: 14px; }
+.lbox .bar .nav { display: flex; gap: 12px; flex: none; align-items: center; }
+.lbox .bar .nav #lclose { height: 56px; padding: 0 28px; font-size: 17px; box-shadow: 0 6px 16px rgba(0,0,0,.35); }
+.lbox .lstage { position: relative; }
+.lbox .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 72px; height: 72px; border-radius: 50%; border: 4px solid #fff; display: grid; place-items: center; padding: 0; box-shadow: 0 8px 22px rgba(0,0,0,.5); transition: transform .15s, background .15s; }
+.lbox .arrow:hover { background: #5CF0FF; transform: translateY(-50%) scale(1.08); }
+.lbox .arrow.p { left: 14px; } .lbox .arrow.n { right: 14px; }
+.lbox button { background: #02D2E6; color: #02385A; border: 0; border-radius: 999px; font: 700 14px/1 var(--font); padding: 10px 16px; cursor: pointer; }
+.lbox img { width: 100%; max-height: 80vh; object-fit: contain; border-radius: 12px; background: #fff; }
+@media (max-width: 640px) { .top .back { font-size: 15px; }  .lbox .arrow { width: 60px; height: 60px; } .lbox .arrow.p { left: 6px; } .lbox .arrow.n { right: 6px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="./#certs"><span aria-hidden="true">&larr;</span> Back to Portfolio</a>
+    <div class="themes" role="group" aria-label="Color mode" id="themes">
+      <button type="button" data-m="blue" aria-pressed="true"><i></i><span>Blue</span></button>
+      <button type="button" data-m="light" aria-pressed="false"><i></i><span>Light</span></button>
+      <button type="button" data-m="dark" aria-pressed="false"><i></i><span>Dark</span></button>
+    </div>
+  </div>
+  <header class="head">
+    <span class="label">Alliah Kassandra Pedro</span>
+    <h1>Certifications and recognition</h1>
+    <p id="count"></p>
+  </header>
+  <div class="filters" id="filters" role="group" aria-label="Filter certificates"></div>
+  <main class="grid" id="grid"></main>
+</div>
+<div class="lbox" id="lbox" role="dialog" aria-modal="true" aria-label="Certificate" hidden>
+  <div class="box">
+    <div class="bar"><span id="lcap"></span><span class="nav"><button type="button" id="lclose">Close &#10005;</button></span></div>
+    <div class="lstage"><img id="limg" alt=""><button type="button" class="arrow p" id="lprev" aria-label="Previous certificate"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M20 12H5M11 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="arrow n" id="lnext" aria-label="Next certificate"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+  </div>
+</div>
+<script>
+var DATA = [{"g": "Recognition and Events", "items": [{"k": "cert_find", "c": "Certificate of Appreciation · F.I.N.D. Youth Project, Sep 2026", "l": "F.I.N.D. Youth Project · Appreciation"}, {"k": "cert_dict", "c": "Certificate of Attendance · DICT Game Art Webinar, Jun 2026", "l": "DICT Game Art Webinar · Attendance"}, {"k": "cert_gordon", "c": "Certificate of Appreciation · Designing with AI: The Agentic UI/UX Workflow (Gordon College), May 2026", "l": "Designing with AI · Appreciation"}, {"k": "cert_swipe", "c": "Certificate of Participation · Swipe Up: The Innovation of Vertical Videos, Mar 2026", "l": "Swipe Up Multimedia Webinar · Participation"}, {"k": "cert_innova", "c": "Certificate of Participation · The People-Pleaser Career: A Practical Roadmap for UI/UX Design Field (Innovatech), Nov 2024", "l": "Innovatech UI/UX Career Webinar · Participation"}, {"k": "cert_certify", "c": "Certificate of Participation · Certify Your Career Season 2, hosted by APC-MSC and JPCS-APC", "l": "Certify Your Career Season 2 · Participation"}, {"k": "cert_oilp9", "c": "Certificate of Completion · 9th Online Information Literacy Program: Digital Art and AI Technology, Apr 2024", "l": "APC Literacy Program: Digital Art and AI"}, {"k": "cert_des", "c": "Certificate of Participation · DES Webinar Series, World Water Day, Mar 2024", "l": "Makati DES Webinar · Participation"}, {"k": "cert_edsa", "c": "Certificate of Participation · EDSA People Power commemoration, APC Senior High School, Feb 2024", "l": "EDSA commemoration · Participation"}, {"k": "cert_geleaps2", "c": "Certificate of Participation · GE LEAPS 2.0 talk: Sustainability and Resilience as a Lifestyle for the Youth, Feb 2024", "l": "GE LEAPS Talk: Sustainability and Resilience"}, {"k": "cert_oilp8", "c": "Certificate of Completion · 8th Online Information Literacy Program: Empowering Academic Research through AI, Feb 2024", "l": "APC Literacy Program on AI · Completion"}, {"k": "cert_bsp", "c": "Certificate of Attendance · Bangko Sentral ng Pilipinas Learning Session on Core Functions of the BSP, Feb 2024", "l": "BSP Learning Session · Attendance"}, {"k": "cert_oilp", "c": "Certificate of Attendance · 7th Online Information Literacy Program, Dec 2023", "l": "APC Media Literacy Program · Attendance"}, {"k": "cert_geleaps1", "c": "Certificate of Participation · GE LEAPS 2.0 talk: Science TikTok Pa More! Mainstream Science Communication on Social Media, Oct 2023", "l": "GE LEAPS Talk: Science Communication"}]}, {"g": "Hackathons and Competitions", "items": [{"k": "cert_sikap", "c": "Certificate of Participation · Web Design Competition, SiKAPTala 2026: The National CS & IT Competition (De La Salle University-Dasmariñas), May 2026", "l": "SiKAPTala 2026 Web Design Competition"}, {"k": "cert_bwai", "c": "Certificate of Attendance · Build with AI by JPCS-APC, May 2026", "l": "Build with AI · JPCS-APC"}, {"k": "cert_bwaipup", "c": "Certificate of Participation · Build with AI: Polytechnic University of the Philippines (Day 2), Apr 2026", "l": "Build with AI · PUP GDG Day 2"}]}, {"g": "Leadership and Memberships", "items": [{"k": "cert_jpcsappr", "c": "Certificate of Appreciation · Assistant Director of Operations, JPCS-APC, Jun 2026", "l": "JPCS-APC · Asst Director of Operations"}, {"k": "cert_bombilya", "c": "Oath of Office · Finance Head, Bahay Bombilya, Sep 2025", "l": "Bahay Bombilya · Finance Head oath"}, {"k": "cert_jpcsoath", "c": "Oath of Office · Operations Asst Director, JPCS-APC", "l": "JPCS-APC · Operations Asst Director oath"}, {"k": "cert_jpcsmem2", "c": "Certificate of Membership · Junior Philippine Computer Society, AY 2025-2026", "l": "JPCS · Membership AY 2025-2026"}, {"k": "cert_jpcsmem", "c": "Certificate of Membership · Junior Philippine Computer Society, AY 2024-2025", "l": "JPCS · Membership AY 2024-2025"}]}, {"g": "UX and Design Learning", "items": [{"k": "cert_uxinter", "c": "UX Foundations: Interaction Design · Feb 2026", "l": "UX Foundations: Interaction Design"}, {"k": "cert_figmapath", "c": "Design User Experiences with Figma (learning path) · Feb 2026", "l": "Design User Experiences with Figma"}, {"k": "cert_swreq", "c": "Software Design: Developing Effective Requirements · Jan 2026", "l": "Software Design: Effective Requirements"}, {"k": "cert_dp", "c": "Design Psychology: Master the Art and Science of UX Design · Nov 2025", "l": "Design Psychology for UX"}, {"k": "cert_uxproto", "c": "UX Foundations: Prototyping · Apr 2025", "l": "UX Foundations: Prototyping"}, {"k": "cert_figma", "c": "Figma for UX Design · Apr 2025", "l": "Figma for UX Design"}, {"k": "cert_ux", "c": "Getting Started in User Experience · Apr 2024", "l": "Getting Started in User Experience"}, {"k": "cert_audio", "c": "Audio Techniques for Film, Video, and Multimedia · Oct 2023", "l": "Audio Techniques for Multimedia"}, {"k": "cert_story", "c": "Storytelling for Designers · Oct 2023", "l": "Storytelling for Designers"}, {"k": "cert_filmedit", "c": "The History of Film and Video Editing · Oct 2023", "l": "History of Film and Video Editing"}]}, {"g": "Presentation and Pitching", "items": [{"k": "cert_lpinv", "c": "Successfully Pitching to Investors (learning path) · Sep 2025", "l": "Successfully Pitching to Investors"}, {"k": "cert_bizpres", "c": "Creating and Giving Business Presentations · Sep 2025", "l": "Creating and Giving Business Presentations"}, {"k": "cert_techstory", "c": "Presenting Technical Information with Stories · Sep 2025", "l": "Presenting Technical Information with Stories"}, {"k": "cert_anx", "c": "Managing Your Anxiety While Presenting · Sep 2025", "l": "Managing Anxiety While Presenting"}, {"k": "cert_pitchinv", "c": "Presentation Tips for Pitching to Investors · Sep 2025", "l": "Presentation Tips for Investors"}, {"k": "cert_pitch", "c": "Pitching Yourself for Opportunity · Sep 2025", "l": "Pitching Yourself for Opportunity"}, {"k": "cert_kawasaki", "c": "Guy Kawasaki on Entrepreneurship · Sep 2025", "l": "Guy Kawasaki on Entrepreneurship"}]}, {"g": "Professional Skills", "items": [{"k": "cert_research", "c": "Writing a Research Paper · Oct 2025", "l": "Writing a Research Paper"}, {"k": "cert_lead", "c": "Leadership Foundations · Dec 2023", "l": "Leadership Foundations"}, {"k": "cert_top10", "c": "Top 10 Rules for Highly Effective Leadership · Dec 2023", "l": "Top 10 Rules for Effective Leadership"}, {"k": "cert_dt", "c": "Digital Transformation · Oct 2023", "l": "Digital Transformation"}, {"k": "cert_excel", "c": "Excel Essential Training (Microsoft 365) · Sep 2023", "l": "Excel Essential Training"}, {"k": "cert_ip", "c": "Understanding Intellectual Property (2014) · Sep 2023", "l": "Understanding Intellectual Property"}, {"k": "cert_infolit", "c": "Information Literacy · Sep 2023", "l": "Information Literacy"}, {"k": "cert_collab", "c": "Working and Collaborating Online · Aug 2023", "l": "Working and Collaborating Online"}, {"k": "cert_word", "c": "Word Essential Training (Microsoft 365) (2023) · Aug 2023", "l": "Word Essential Training"}, {"k": "cert_hoc", "c": "Certificate of Completion · The Hour of Code (Code.org)", "l": "The Hour of Code · Completion"}]}];
+(function () {
+  var root = document.documentElement;
+  function setMode(m) { if (m === 'light' || m === 'dark') root.setAttribute('data-mode', m); else root.removeAttribute('data-mode'); document.querySelectorAll('#themes button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.m === m ? 'true' : 'false'); }); }
+  var saved = null; try { saved = localStorage.getItem('ap-mode'); } catch (e) {}
+  setMode(saved || 'blue');
+  document.querySelectorAll('#themes button').forEach(function (b) { b.addEventListener('click', function () { setMode(b.dataset.m); try { localStorage.setItem('ap-mode', b.dataset.m); } catch (e) {} }); });
+
+  var all = [], total = 0;
+  DATA.forEach(function (g) { g.items.forEach(function (i) { all.push({ k: i.k, c: i.c, l: i.l, g: g.g }); }); });
+  total = all.length;
+  var grid = document.getElementById('grid'), filters = document.getElementById('filters'), count = document.getElementById('count');
+  var current = 'All', shown = [];
+  function esc(t) { return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function render() {
+    shown = all.filter(function (x) { return current === 'All' || x.g === current; });
+    grid.innerHTML = shown.map(function (x, n) {
+      return '<article class="item"><button type="button" data-n="' + n + '" aria-label="View certificate: ' + esc(x.c) + '"><img loading="lazy" src="certs/' + x.k + '.jpg" alt="' + esc(x.c) + '"></button><div class="meta"><small>' + esc(x.g) + '</small><b>' + esc(x.l) + '</b></div></article>';
+    }).join('');
+    count.textContent = (current === 'All' ? total + ' certificates' : shown.length + ' of ' + total + ' certificates') + ': recognition, hackathons and competitions, event participation, leadership roles and short courses. Tap any certificate to enlarge it.';
+  }
+  var names = ['All'].concat(DATA.map(function (g) { return g.g; }));
+  filters.innerHTML = names.map(function (n) {
+    var c = n === 'All' ? total : DATA.filter(function (g) { return g.g === n; })[0].items.length;
+    return '<button type="button" data-g="' + esc(n) + '" aria-pressed="' + (n === 'All') + '">' + esc(n) + '<span>' + c + '</span></button>';
+  }).join('');
+  filters.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return; current = b.dataset.g;
+    filters.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    render();
+  });
+
+  var lb = document.getElementById('lbox'), im = document.getElementById('limg'), cp = document.getElementById('lcap'), idx = 0, last = null;
+  function show(n) { idx = (n + shown.length) % shown.length; var x = shown[idx]; im.src = 'certs/' + x.k + '.jpg'; im.alt = x.c; cp.textContent = x.c; }
+  function open(n, btn) { last = btn; show(n); lb.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('lclose').focus(); }
+  function close() { lb.hidden = true; document.body.style.overflow = ''; if (last) last.focus(); }
+  grid.addEventListener('click', function (e) { var b = e.target.closest('button[data-n]'); if (b) open(+b.dataset.n, b); });
+  document.getElementById('lclose').addEventListener('click', close);
+  document.getElementById('lprev').addEventListener('click', function () { show(idx - 1); });
+  document.getElementById('lnext').addEventListener('click', function () { show(idx + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) { if (lb.hidden) return; if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') show(idx - 1); else if (e.key === 'ArrowRight') show(idx + 1); });
+  render();
+})();
+</script>
+</body>
+</html>
